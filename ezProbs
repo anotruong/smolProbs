@@ -1,0 +1,35 @@
+//eZ 1: 
+//Assignment: Create functiont hat takes one integer argument and 
+//returns true if the value is odd. 
+
+
+//Explicit: 
+    //Expect the value to always be an integer
+    //return is boolean
+
+
+//implicit:
+    //doesn't matter if the value is negative or positive. 
+
+//create a function called "isOdd"
+    //takes one argument
+    //use if statment
+        //
+    //return "true/false"
+
+
+function isOdd (integer) {
+    return (integer % 2 === 1 ? 'true' : 'false');
+}
+
+//test:
+console.log(isOdd(2)); // => false
+console.log(isOdd(5)); // => true
+console.log(isOdd(-17)); // => true
+console.log(isOdd(-8)); // => false
+console.log(isOdd(0)); // => false
+console.log(isOdd(7)); // => true
+
+
+//ez 2:
+//
