@@ -1,0 +1,47 @@
+// Enter the length of the room in meters:
+// 10
+// Enter the width of the room in meters:
+// 7
+// The area of the room is 70.00 square meters (753.47 square feet).
+
+// explicit: 
+//     create a function
+//     will take two arguments (length, width) in meters
+//     use readlineSync.prompt method to collect information 
+//     the log will be the area of the room in both meters and square ft
+
+// implicit:
+//     greeting to the program to explain what it isFinite. 
+//     ask for length of room in
+//     ask for width
+//     result:
+
+// test:
+//     The area of the room is xxxx square meters and sq ft. 
+
+// algorithm:
+//     formula for area is A = L x W.
+
+//     install readlinesync. 
+//         ask for length in meters
+//         ask for width in meters
+//         let mResult = length x width.
+//         let sqftResult = result x 10.7639
+//         console.log() "The area of the room is $mResult square 
+//             meters ($sqftResult" square feet"
+
+const readline = require('readline-sync');
+
+console.log("Welcome to the Room Area Calculator.")
+
+console.log("Input the length in meters.");
+let length = readline.question();
+
+console.log("Input the width in meters.");
+let width = readline.question();
+
+let mResult = length * width;
+ 
+let sqResult = mResult * 10.7639
+
+console.log(`The area of the room is ${mResult} square meters. (${sqResult} square feet.) `);
