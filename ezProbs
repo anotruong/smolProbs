@@ -30,7 +30,7 @@ console.log(isOdd(-8)); // => false
 console.log(isOdd(0)); // => false
 console.log(isOdd(7)); // => true
 
-
+///////////////////
 //ez 2:
 // Assignment: Log all odd numbers from 1 to 99, inclusive, to the console,
 // with each number on a separte line
@@ -68,6 +68,7 @@ for (let i = 0; i < 100; i += 1) {
     }
 }
 
+//////////////////
 //ezProbs 3
 // Explicit: 
     //Only return even numbers. 
@@ -105,6 +106,38 @@ while (counter < 99) {
     counter++
 }
 
+/////////////
+// ez 7: Short Long Short
 
+// Explicit:
+//     Write a function that takes two strings as an argument;
+//     Determine the lengths of the two strings;
+//     Returns concatenating shorter string, longer string, shorter string;
+
+// Implicit:
+//     Whitespaces are not considered characters;
+//     either argument could be shorter or longer;
+//     One function;
+
+// Algorithm:
+//     function shortLongShort;
+//     takes two arguments;
+//     .length() on each argument
+//     if statement?
+//            true
+//     return restrung
+
+function shortLongShort (str1, str2) {
+    if (str1.length < str2.length) {
+        return str1.concat(str2, str1)
+    } else {
+        return str2.concat(str1, str2)
+    }
+}
+
+//Test:
+    console.log(shortLongShort('abc', 'defgh'));    // "abcdefghabc"
+    console.log(shortLongShort('abcde', 'fgh'));    // "fghabcdefgh"
+    console.log(shortLongShort('', 'xyz'));         // "xyz"
 
 
