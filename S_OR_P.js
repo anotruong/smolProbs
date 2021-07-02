@@ -73,7 +73,7 @@ function product (integer) {
 product(6)
 
 prompt("Please enter an integer greater than 0:");
-let userInput = readline.question();
+let userInput = Number(readline.question());
 
 prompt(`Enter "s" to compute the sum, or "p" to compute product.`);
 let funcChoice = readline.question().toLowerCase();
