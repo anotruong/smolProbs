@@ -140,4 +140,125 @@ function shortLongShort (str1, str2) {
     console.log(shortLongShort('abcde', 'fgh'));    // "fghabcdefgh"
     console.log(shortLongShort('', 'xyz'));         // "xyz"
 
+///////
+//ez 8
+// Assignment: Leap Years (prt 1)
 
+// Explicit: 
+//     Write a function that takes any year greater than 0 as an input 
+//         and returns `true` if the year is a leap year.
+//         `false` if it's not.
+//     What constitutes a leap year?
+//         Any year that is evenly divisible by 4 and 100
+//         Unless it's also divisible by 400
+    
+// Implicit:
+//     Every input must by an integer 
+//     one function
+    
+
+function isLeapYear(num) {
+    if (num % 400 === 0){
+        return true
+    } else if (num % 100 === 0) {
+        return false
+    } else {
+        return num % 4 === 0
+    }
+};
+
+Test:
+    console.log(isLeapYear(2016));      // true
+    console.log(isLeapYear(2015));      // false
+    console.log(isLeapYear(2100));      // false
+    console.log(isLeapYear(2400));      // true
+    console.log(isLeapYear(240000));    // true
+    console.log(isLeapYear(240001));    // false
+    console.log(isLeapYear(2000));      // true
+    console.log(isLeapYear(1900));      // false
+    console.log(isLeapYear(1752));      // true
+    console.log(isLeapYear(1700));      // false
+    console.log(isLeapYear(1));         // false
+    console.log(isLeapYear(100));       // false
+    console.log(isLeapYear(400));       // true
+/////
+//ez 8
+// Assignment: Leap Years (prt 2)
+
+// Explicit: 
+    // Years before 1752 should be consider leap years regardless of being divisible by 100.
+    // Years after should be held to all the previous conditions
+
+    
+// Implicit:
+
+    
+
+function isLeapYear(year) {
+    if (year > 1752) {
+    if (year % 400 === 0){
+        return true
+    } else if (year % 100 === 0) {
+        return false
+    } else {
+        return year % 4 === 0
+        }   
+    } else {
+        return year % 4 === 0
+    }   
+};
+
+Test:
+    console.log(isLeapYear(2016));      // true
+    console.log(isLeapYear(2015));      // false
+    console.log(isLeapYear(2100));      // false
+    console.log(isLeapYear(2400));      // true
+    console.log(isLeapYear(240000));    // true
+    console.log(isLeapYear(240001));    // false
+    console.log(isLeapYear(2000));      // true
+    console.log(isLeapYear(1900));      // false
+    console.log(isLeapYear(1752));      // true
+    console.log(isLeapYear(1700));      // true
+    console.log(isLeapYear(1));         // false
+    console.log(isLeapYear(100));       // true
+    console.log(isLeapYear(400));       // true
+
+/////////
+//ez 9
+
+// Assignment: Multiples of 3 and 5;
+
+// Explicit:
+//     write a function;
+//     computes the sum of all the numbers between 1 and user input 
+//         that are multiples of 3 or 5
+//         ex. if the supplied number is 20, the result should be 
+//             98 (3 + 5 + 6 + 9 + 10 + 12 + 15 + 18 + 20)  
+
+// Implicit:
+//     All numbers should be parseInt
+//     Exclude 1 automatically
+
+// Algorithm:
+//     Create function
+//     loop through all the numbers between 1 and userInput
+//     push to new array all the numbers that evenly divide into 3/5
+//     use reduce to add all the numbers together. 
+
+function multisum(num) {
+    let total = 0;
+    for (let i = 1; i <= num; i += 1) {
+        if ((i % 3 === 0) || (i % 5 === 0)) {
+
+            //realized no need for reduce
+            total += i
+        }
+    }
+     return total;
+}
+
+// Test:
+console.log(multisum(3));       // 3
+console.log(multisum(5));       // 8
+console.log(multisum(10));      // 33
+console.log(multisum(1000));    // 234168
