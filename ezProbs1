@@ -1,0 +1,309 @@
+//eZ 1: 
+//Assignment: Create functiont hat takes one integer argument and 
+//returns true if the value is odd. 
+
+
+//Explicit: 
+    //Expect the value to always be an integer
+    //return is boolean
+
+
+//implicit:
+    //doesn't matter if the value is negative or positive. 
+
+//create a function called "isOdd"
+    //takes one argument
+    //use if statment
+        //
+    //return "true/false"
+
+
+function isOdd (integer) {
+    return (integer % 2 === 1 ? 'true' : 'false');
+}
+
+//test:
+console.log(isOdd(2)); // => false
+console.log(isOdd(5)); // => true
+console.log(isOdd(-17)); // => true
+console.log(isOdd(-8)); // => false
+console.log(isOdd(0)); // => false
+console.log(isOdd(7)); // => true
+
+///////////////////
+//ez 2:
+// Assignment: Log all odd numbers from 1 to 99, inclusive, to the console,
+// with each number on a separte line
+
+// Explicit: 
+    //Only return odd numbers. 
+    //Include 1 and 99
+    //each return on a separte line
+
+// Implicit:
+
+//Algorithm:
+    //for loop?
+
+    //while function loops through 99
+        //counter++
+   //if value has remainder 1, return value
+
+        //console.log value to log separte lines. 
+
+// Test:
+//     1, 
+//     3, 
+//     5,
+//     7,
+//     9,
+//     11,
+//     13,
+//     15,
+//     ...
+
+for (let i = 0; i < 100; i += 1) {
+    if (i % 2 === 1) {
+        console.log(i);
+    }
+}
+
+//////////////////
+//ezProbs 3
+// Explicit: 
+    //Only return even numbers. 
+    //1 - 99
+    //each return on a separte line
+
+// Implicit:
+    // Same code but even
+
+//Algorithm:
+    //for loop?
+
+    //while function loops through 99
+        //counter++
+   //if value has remainder 1, return value
+
+        //console.log value to log separte lines. 
+
+// Test:
+// 2,
+// 4,
+// 6,
+// 8,
+// 10
+// ...
+
+let counter = 0
+let i = '';
+
+while (counter < 99) {
+    i = counter + 1;
+    if (i % 2 === 0) {
+        console.log(i)
+    }
+    counter++
+}
+
+/////////////
+// ez 7: Short Long Short
+
+// Explicit:
+//     Write a function that takes two strings as an argument;
+//     Determine the lengths of the two strings;
+//     Returns concatenating shorter string, longer string, shorter string;
+
+// Implicit:
+//     Whitespaces are not considered characters;
+//     either argument could be shorter or longer;
+//     One function;
+
+// Algorithm:
+//     function shortLongShort;
+//     takes two arguments;
+//     .length() on each argument
+//     if statement?
+//            true
+//     return restrung
+
+function shortLongShort (str1, str2) {
+    if (str1.length < str2.length) {
+        return str1.concat(str2, str1)
+    } else {
+        return str2.concat(str1, str2)
+    }
+}
+
+//Test:
+    console.log(shortLongShort('abc', 'defgh'));    // "abcdefghabc"
+    console.log(shortLongShort('abcde', 'fgh'));    // "fghabcdefgh"
+    console.log(shortLongShort('', 'xyz'));         // "xyz"
+
+///////
+//ez 8
+// Assignment: Leap Years (prt 1)
+
+// Explicit: 
+//     Write a function that takes any year greater than 0 as an input 
+//         and returns `true` if the year is a leap year.
+//         `false` if it's not.
+//     What constitutes a leap year?
+//         Any year that is evenly divisible by 4 and 100
+//         Unless it's also divisible by 400
+    
+// Implicit:
+//     Every input must by an integer 
+//     one function
+    
+
+function isLeapYear(num) {
+    if (num % 400 === 0){
+        return true
+    } else if (num % 100 === 0) {
+        return false
+    } else {
+        return num % 4 === 0
+    }
+};
+
+Test:
+    console.log(isLeapYear(2016));      // true
+    console.log(isLeapYear(2015));      // false
+    console.log(isLeapYear(2100));      // false
+    console.log(isLeapYear(2400));      // true
+    console.log(isLeapYear(240000));    // true
+    console.log(isLeapYear(240001));    // false
+    console.log(isLeapYear(2000));      // true
+    console.log(isLeapYear(1900));      // false
+    console.log(isLeapYear(1752));      // true
+    console.log(isLeapYear(1700));      // false
+    console.log(isLeapYear(1));         // false
+    console.log(isLeapYear(100));       // false
+    console.log(isLeapYear(400));       // true
+/////
+//ez 8
+// Assignment: Leap Years (prt 2)
+
+// Explicit: 
+    // Years before 1752 should be consider leap years regardless of being divisible by 100.
+    // Years after should be held to all the previous conditions
+
+    
+// Implicit:
+
+    
+
+function isLeapYear(year) {
+    if (year > 1752) {
+    if (year % 400 === 0){
+        return true
+    } else if (year % 100 === 0) {
+        return false
+    } else {
+        return year % 4 === 0
+        }   
+    } else {
+        return year % 4 === 0
+    }   
+};
+
+Test:
+    console.log(isLeapYear(2016));      // true
+    console.log(isLeapYear(2015));      // false
+    console.log(isLeapYear(2100));      // false
+    console.log(isLeapYear(2400));      // true
+    console.log(isLeapYear(240000));    // true
+    console.log(isLeapYear(240001));    // false
+    console.log(isLeapYear(2000));      // true
+    console.log(isLeapYear(1900));      // false
+    console.log(isLeapYear(1752));      // true
+    console.log(isLeapYear(1700));      // true
+    console.log(isLeapYear(1));         // false
+    console.log(isLeapYear(100));       // true
+    console.log(isLeapYear(400));       // true
+
+/////////
+//ez 9
+
+// Assignment: Multiples of 3 and 5;
+
+// Explicit:
+//     write a function;
+//     computes the sum of all the numbers between 1 and user input 
+//         that are multiples of 3 or 5
+//         ex. if the supplied number is 20, the result should be 
+//             98 (3 + 5 + 6 + 9 + 10 + 12 + 15 + 18 + 20)  
+
+// Implicit:
+//     All numbers should be parseInt
+//     Exclude 1 automatically
+
+// Algorithm:
+//     Create function
+//     loop through all the numbers between 1 and userInput
+//     push to new array all the numbers that evenly divide into 3/5
+//     use reduce to add all the numbers together. 
+
+function multisum(num) {
+    let total = 0;
+    for (let i = 1; i <= num; i += 1) {
+        if ((i % 3 === 0) || (i % 5 === 0)) {
+
+            //realized no need for reduce
+            total += i
+        }
+    }
+     return total;
+}
+
+// Test:
+console.log(multisum(3));       // 3
+console.log(multisum(5));       // 8
+console.log(multisum(10));      // 33
+console.log(multisum(1000));    // 234168
+
+/////
+//ez 11
+//UTF-16 String Value
+
+// Explicit:
+//     create a function
+//     determines and returns the UTF-16 string value of the argument
+//     the value is the sum of the UTF-16 characters. 
+//     Use String.prototype.charCodeAt()
+
+// Implicit:
+    // it matters if it's upper or lowercase
+    // break into multiple fuctions?
+
+// algorithm:
+//     Create function
+//     loop over string
+    // use String.prototype.charCodeAt()
+    // push into new variable to make it array?
+        //can not reassign it, must use destructive method
+    // sum the values (reduce)
+    // return value
+
+
+function utf16Value (string) {
+    let arr = [];
+    for (let i = 0; i < string.length; i += 1){
+        arr.push(string.charCodeAt(i))
+    }
+    return arr.reduce((acc, element) => acc + element, 0);
+}
+    
+console.log(utf16Value('Four score'));         // 984
+console.log(utf16Value('Launch School'));      // 1251
+console.log(utf16Value('a'));                  // 97
+console.log(utf16Value(''));                   // 0
+
+// // The next three lines demonstrate that the code
+// // works with non-ASCII characters from the UTF-16
+// // character set.
+const OMEGA = "\u03A9";             // UTF-16 character 'Ω' (omega)
+console.log(utf16Value(OMEGA));                  // 937
+console.log(utf16Value(OMEGA + OMEGA + OMEGA));  // 2811
+
