@@ -1,0 +1,37 @@
+// ez 1
+
+// Explicit:
+//     Create a function "greetings" 
+//     takes 2 arguments (array, object)
+
+// Implicit:
+//     Array will be names, 
+//         Concat array
+//         string.prototype.join() to change array into string
+//     Object will be level of job title 
+//         use dot notation?    
+
+// Algorithm:
+//     Take two arguments, 
+//         bracket and curly braces?
+//         no, just argument name?
+//     create let variable join array 
+    // use object.values() to pull out array?
+    
+//     return (`Hello, ${arrVariable}! Nice to have a ${object} ${object} around.`)
+
+// test:
+//     Hello, John Q Doe! Nice to have a Master Plumber around.
+
+function greetings(arr, obj) {us
+    let name = arr.join(' ');
+    let job = Object.values(obj).join(' ');
+    return `Hello, ${name}! Nice to have a ${job} around.`
+}
+
+    console.log(
+        greetings(["John", "Q", "Doe"], { title: "Master", occupation: "Plumber" })
+      );
+      // logs Hello, John Q Doe! Nice to have a Master Plumber around.
+
+///////////
