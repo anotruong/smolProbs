@@ -1,0 +1,40 @@
+// Explicit:
+//     Create a program that will ask for user's name.
+//     greet the user first
+//     if it the user uses an exclaimation mark then return all uppercase Response
+//         If it doesn't, response normally    
+
+// Implicit:
+//     Ignore other grammer marks 
+//         ex: . ,
+//	Remove "!"
+
+// Algorithm:
+//     Add readline-sync 
+//     create prompt function to console log 
+//     function greeter
+//         use if statement to choose Response
+//             String.prototype.includes();
+//     greet the user
+//     ask for their name
+//     their name would trigger function with if statement 
+
+const readline = require('readline-sync');
+
+let name = readline.question('What is your name? \n');
+
+if (name.includes("!")) {
+    name = name.slice(0, -1);
+    console.log(`HELLO ${name.toUpperCase()}, WHY ARE WE SCREAMING?`);
+} else {
+    console.log(`Hello ${name}.`);
+}
+
+
+// test:
+//     if userInput does not include exclamation mark 
+//         What is your name? Bob
+//         Hello Bob.
+//     if it does
+//         What is your name? Bob!
+//         HELLO BOB. WHY ARE WE SCREAMING?
