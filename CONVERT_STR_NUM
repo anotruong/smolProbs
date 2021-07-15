@@ -1,0 +1,32 @@
+// Explicit:
+//     write a function that takes a string of digits
+//     return the integer of those numbers
+//     logs true
+//     do not use parseInt(), .Number(), String(),
+//     assume all characters are numeric
+
+// Implicit:
+
+
+// Algorithm:
+//     function stringToInteger
+//     string argument
+//     split string into Array
+//     map to concat one another
+//
+//     returns integer
+
+function stringToInteger(string) {
+    
+    //realized that reduce was a better method but it left an extra integer;
+    string = string.split('').reduce((element, acc) => element + acc, 0);
+
+    //used substring to remove integer;
+    let NO_0 = string.substring(1);
+    return NO_0;
+};
+
+
+//test:
+console.log(stringToInteger("4321") === 4321); // logs true
+console.log(stringToInteger("570") === 570); // logs true
