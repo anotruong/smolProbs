@@ -10,23 +10,94 @@
 
 // Algorithm:
 //     function stringToInteger
+    // Create an object with 10 keys and 10 values, all numeric;     
 //     string argument
 //     split string into Array
 //     map to concat one another
 //
 //     returns integer
 
-function stringToInteger(string) {
+// function stringToInteger(string) {
     
-    //realized that reduce was a better method but it left an extra integer;
-    string = string.split('').reduce((element, acc) => element + acc, 0);
+//     //realized that reduce was a better method but it left an extra integer;
+//     string = string.split('').reduce((element, acc) => element + acc, 0);
 
-    //used substring to remove integer;
-    let NO_0 = string.substring(1);
-    return NO_0;
+//     //used substring to remove integer;
+//     let NO_0 = string.substring(1);
+//     return NO_0;
+// };
+
+function stringToInteger(string) {
+    const numObj ={
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9
+    };
+    //we should still split this.
+    let strArr = string.split('');
+    // console.log(strArr);
+
+    //from the article Sergio sent, Hindu-Arabic is multiplication and addition. 
+    // if we want 10, then it's 1 * 10 + 0 * 1
+        //we use 10 because it's the second place of number aka 10s
+        //we use 1 because it's the first/single digit place in a number. 
+    //so the formula in code form is 10 * input + 1 * input
+    // what do I want to do?
+        //I want to match the numbers to the object keys. so each array number should be an object key.
+            //this is a new variable
+            //I make strArr the index of of numObject because i can pull out the numbers from the array. 
+    // let num = numObj[strArr];
+    // console.log(num); logged undefined.
+    
+    //I have to loop over strArr
+        //map? or forEach?
+    let number = strArr.map(num => numObj[num]);
+
+    return number.reduce((acc, ele) => (acc * 10) + ele);
 };
 
 
+function hexadecimalToInteger(string) {
+    const mixedObj = {
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        a: 10,
+        b: 11,
+        c: 12,
+        d: 13,
+        e: 14,
+        f: 15
+    };
+
+    let arr = string.toLowerCase().split('');
+    console.log(arr);
+
+    let result = arr.map(num => mixedObj[num]);
+    console.log(result);
+
+   return result.reduce((acc, ele) => (acc * 16) + ele);
+};
+
 //test:
-console.log(stringToInteger("4321") === 4321); // logs true
-console.log(stringToInteger("570") === 570); // logs true
+ console.log(stringToInteger("54") === 54); // logs true
+ console.log(stringToInteger("35") === 35); // logs true
+ console.log(stringToInteger("4321") === 4321); // logs true
+ console.log(stringToInteger("570") === 570); // logs true
+
+ console.log(hexadecimalToInteger("143d4") === 82900); // logs true 
+ console.log(hexadecimalToInteger("65abc231") === 1705755185); // logs true
