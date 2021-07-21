@@ -1,0 +1,55 @@
+//prob 1
+// explicit:
+//     write a function that takes a string argument
+//         returns new string that contains the same string with all 
+//             duplicate characters collapsed
+
+
+// test:
+//     duplicates are characters right after the word;
+//     empty strings return empty
+
+
+// Algorithm:
+//     input: String;
+//     output: String;
+
+//     let result = ''
+//     let variable = []
+//     let counter = 0
+//     split into separte elements 
+//     analyze over each Element
+//     do while loop?
+    // add 2 to each index name 
+
+//         do {
+//             if [0] === [1] {
+//              result.push([0])
+//                 } else {
+//             result.push[0]
+//                 }
+//           } while (counter < Array.length )
+
+//     instead of do/while, what about for/if loop?
+//         if the last element in result === str inded, it continues. 
+// //             counter =+ 1
+
+    // return result.join(' ')
+
+function crunch(string) {
+    let total = [];
+    string.split('')
+          .forEach(char => {
+            if ((char != total.slice(-1)) || (char.length === 0)) 
+            total.push(char)
+            });
+    return total.join('');
+}
+
+// console.log(typeof total)
+// test:
+console.log(crunch('ddaaiillyy ddoouubbllee'));    // "daily double"
+console.log(crunch('4444abcabccba'));              // "4abcabcba"
+console.log(crunch('ggggggggggggggg'));            // "g"
+console.log(crunch('a'));                          // "a"
+console.log(crunch(''));                           // ""
