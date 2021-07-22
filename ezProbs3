@@ -53,3 +53,68 @@ console.log(crunch('4444abcabccba'));              // "4abcabcba"
 console.log(crunch('ggggggggggggggg'));            // "g"
 console.log(crunch('a'));                          // "a"
 console.log(crunch(''));                           // ""
+
+//////
+//ez 2 Bannerizer 
+// Explicit:
+//     Write a function that will take a short line of Text
+//         and put it in the box. 
+//     Box needs to stretch the longer the Text. 
+
+// Implicit:
+//     words should stay in one line. 
+//     the length of the lines above 
+//         should depend on the length of the string
+//     the first dash should be empty, so the second dash is what extends. 
+    // String.length + 1
+//     box should be 5 lines in height 
+        // there should be three variables, 
+            // 1 for the top two sections, middle and bottom two
+        // What if I made eerything into an array with one empty array.
+
+// Algorithm:
+// let edges = ['+', '-', '-', '+'];
+// let secondary = ['|', ' ', ' ', '|'];
+// let textArea = ['|', ' ', ' ', '|'];
+// create text box that inserts str into textArea
+//     let textBox = textArea.splice(3, 0, userInput)
+// Loop through str.length
+//     depending how long the length is, insert either '-' or ' ';
+// do while?
+// remember to join them all in the loop 
+
+function logInBox(string) {
+    let counter = 0;
+    let edges = ['+', '-', '-', '+'];
+    let midLine = ['|', ' ', ' ', '|'];
+    let textArea = midLine.slice();
+    textArea.splice(2, 0, string);
+
+    while (counter < string.length) {
+        edges.splice(1, 0, '-');
+        midLine.splice(1, 0, ' ');
+        counter++
+    };
+    
+    edges = edges.join('');
+    midLine = midLine.join('');
+    textArea = textArea.join('');
+
+    return`${edges}\n${midLine}\n${textArea}\n${midLine}\n${edges}`;
+}
+
+// Test:
+console.log(logInBox('To boldly go where no one has gone before.'));
+console.log(logInBox(''));
+console.log(logInBox('Today\'s the day'))
+// +--------------------------------------------+
+// |                                            |
+// | To boldly go where no one has gone before. |
+// |                                            |
+// +--------------------------------------------+
+// logInBox('');
+// +--+
+// |  |
+// |  |
+// |  |
+// +--+
