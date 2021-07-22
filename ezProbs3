@@ -83,7 +83,7 @@ console.log(crunch(''));                           // ""
 // do while?
 // remember to join them all in the loop 
 
-function logInBox(string) {
+/*function logInBox(string) {
     let counter = 0;
     let edges = ['+', '-', '-', '+'];
     let midLine = ['|', ' ', ' ', '|'];
@@ -101,12 +101,25 @@ function logInBox(string) {
     textArea = textArea.join('');
 
     return`${edges}\n${midLine}\n${textArea}\n${midLine}\n${edges}`;
+}*/
+
+//Shorter version
+function logInBox(str) {
+    let dashes = '-';
+    let whiteSpc = ' ';
+
+    console.log(`+-${dashes.repeat(str.length)}-+`)
+    console.log(`| ${whiteSpc.repeat(str.length)} |`)
+    console.log(`| ${str} |`)
+    console.log(`| ${whiteSpc.repeat(str.length)} |`)
+    console.log(`+-${dashes.repeat(str.length)}-+`)
 }
 
 // Test:
-console.log(logInBox('To boldly go where no one has gone before.'));
-console.log(logInBox(''));
-console.log(logInBox('Today\'s the day'))
+logInBox('To boldly go where no one has gone before.');
+logInBox('');
+logInBox('Today\'s the day')
+
 // +--------------------------------------------+
 // |                                            |
 // | To boldly go where no one has gone before. |
