@@ -131,3 +131,57 @@ logInBox('Today\'s the day')
 // |  |
 // |  |
 // +--+
+
+//////
+//prob 4? 5?
+// Explicit:
+//       one function;
+//       takes positive integer, 'n' as an argument;
+//       logs a right triangle who's sides have 'n' stars. ;
+
+
+// Implicit:
+//       Ignore any negative integers as an argument;
+//       The number of stars on the bottom and right side are the same;
+//       whitespace ends with an astrick;
+
+// Algorithm:
+//       start: integer;
+//       while loop 
+//             starts increment up and whitespace increment down
+//             console.log " ".repeat()
+//       return: many astrisck and white spaces 
+
+function triangle(n) {
+      let increment = 1;
+      let reduction = n - 1;
+
+      while (n > 0) {
+            console.log(`${' '.repeat(reduction)}${'*'.repeat(increment)}`);
+            increment += 1;
+            reduction -= 1;
+            n -= 1;
+      }
+};
+
+
+// Test:
+triangle(5);
+
+//     *
+//    **
+//   ***
+//  ****
+// *****
+
+triangle(9);
+
+//         *
+//        **
+//       ***
+//      ****
+//     *****
+//    ******
+//   *******
+//  ********
+// *********
