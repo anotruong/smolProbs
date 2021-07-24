@@ -185,3 +185,46 @@ triangle(9);
 //   *******
 //  ********
 // *********
+////
+// Grade Book
+
+// Explicit:
+//       one function;
+//       Determines the mean/average of 3 arguments
+//       returns letter grade;
+
+//       90 <= score <= 100: 'A'
+//       80 <= score < 90: 'B'
+//       70 <= score < 80: 'C'
+//       60 <= score < 70: 'D'
+//       0 <= score < 60: 'F'
+
+// Implicit:
+//       Finding the mean: 
+//       arguments plus each other then divide by 3
+      
+
+// Algorithm:
+
+function getGrade(a, b, c){
+      let score = Math.floor((a + b + c) / 3);
+
+      if (90 <= score){
+                  console.log('A');
+            } else if (80 <= score) {
+                  console.log('B');
+            } else if (70 <= score){
+                  console.log('C');
+            } else if (60 <= score) {
+                  console.log('D');
+            } else {
+                  console.log('F');
+            }
+
+}
+
+// Test:
+getGrade(95, 90, 93);    // "A"
+getGrade(50, 50, 95);    // "D"
+////
+
