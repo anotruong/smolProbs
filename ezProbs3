@@ -227,4 +227,29 @@ function getGrade(a, b, c){
 getGrade(95, 90, 93);    // "A"
 getGrade(50, 50, 95);    // "D"
 ////
+//Clean up the Words prob 9
+// Explicit:
+//       One function;
+//       return string with all non-alphabetic chracters replaced by spaces;
+//       If one or more non-alphabetic character occurs in a row
+//             there should still be only one space;
 
+// Implicit:
+      //learn regex. 
+
+// Algorithm:
+//       start: string;      
+      // learn RegExp
+            //two hours. 
+      // Create a special character variable. 
+      // remove all the special characters and replace them with white SVGPathSegClosePath. 
+      //       Remember global flag;
+//       return: string;
+
+function cleanUp(string) {
+      let spChars = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g;
+      return string.replace(spChars, " ").replace(/\s+/g, " ");
+}
+
+// Test:
+console.log(cleanUp("---what's my +*& line?"));    // " what s my line "
