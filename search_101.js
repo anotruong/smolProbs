@@ -23,8 +23,12 @@
 const readline = require('readline-sync');
 let first_five = [];
 
-function prompt(msg) {
-  console.log(msg);
+function prompt(str) {
+  if (str === undefined){
+  console.log('Your answer was invalid, please try again.');
+  } else {
+  console.log(str)
+  };
 }
 
 function is_a_number(num) {
@@ -35,7 +39,7 @@ function is_a_number(num) {
 let first_num = readline.question('Enter the 1st number: ');
 
 if (is_a_number(first_num) === false) {
-  prompt('Please try again, that was not a number.');
+  prompt();
   first_num = readline.question('Enter the 1st number: ');
   is_a_number(first_num);
 }
@@ -43,7 +47,7 @@ if (is_a_number(first_num) === false) {
 let second_num = readline.question('Enter the 2nd number: ');
 
 if (is_a_number(second_num) === false) {
-  prompt('Please try again, that was not a number.');
+  prompt();
   second_num = readline.question('Enter the 2nd number: ');
   is_a_number(second_num);
 }
@@ -51,7 +55,7 @@ if (is_a_number(second_num) === false) {
 let third_num = readline.question('Enter the 3rd number: ');
 
 if (is_a_number(third_num) === false) {
-  prompt('Please try again, that was not a number.');
+  prompt();
   third_num = readline.question('Enter the 3rd number: ');
   is_a_number(third_num);
 }
@@ -59,7 +63,7 @@ if (is_a_number(third_num) === false) {
 let fourth_num = readline.question('Enter the 4th number: ');
 
 if (is_a_number(fourth_num) === false) {
-  prompt('Please try again, that was not a number.');
+  prompt();
   fourth_num = readline.question('Enter the 4th number: ');
   is_a_number(fourth_num);
 }
@@ -67,7 +71,7 @@ if (is_a_number(fourth_num) === false) {
 let fifth_num = readline.question('Enter the 5th number: ');
 
 if (is_a_number(fifth_num) === false) {
-  prompt('Please try again, that was not a number.');
+  prompt();
   fifth_num = readline.question('Enter the 5th number: ');
   is_a_number(fifth_num);
 }
@@ -75,7 +79,7 @@ if (is_a_number(fifth_num) === false) {
 let last_num = readline.question('Enter the last number: ');
 
 if (!String(last_num).match(/\d/)) {
-  prompt('Please try again, that was not a number.');
+  prompt();
   last_num = readline.question('Enter the last number: ');
 }
 
@@ -88,6 +92,5 @@ switch (answer) {
   default:
     prompt(`The number ${last_num} does not appear in ${first_five}.`);
     break;
-
 }
 
