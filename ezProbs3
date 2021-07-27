@@ -253,3 +253,88 @@ function cleanUp(string) {
 
 // Test:
 console.log(cleanUp("---what's my +*& line?"));    // " what s my line "
+////
+// What Century is That?
+
+// Explicit:
+//       one function;
+//       integer (year) input;
+//       return string that begins with century number and ends with:
+//             'st', 'nd', 'rd', or 'th';
+//       New centuries begin in the years that end with 1, so 1901-2000 is the 20th century. 
+
+
+// Implicit:
+//       Ignore non integer characters;
+//       Centuries go by the last 100 years;
+
+// Algorithm:
+//       start integer;
+//       let decade;
+
+//       Find the century;
+//             Divide each number by 100;
+//             if there is a remainder;
+//                   decade = (year / 100) + 1; 
+//             else 
+//                   decade = year / 100;
+
+//       Attach the ending term:
+//             loop over string(decade);
+//             if decade.includes((/10-20/)) || (year % 10 === 0));
+//             return decade + 'th';
+//             else if decade.endsWith('3');
+//             return decade+'rd';
+//             else if decade.endsWith('1');
+//             return decade + 'st';
+      // There must be a neater way to appoarch this. 
+      //  ends in 3, excludes the 10ths. 
+      //  then return 'th'
+//       return century;
+      //note: it's ok to have multiple functions since each function should only do 1-2 things. 
+
+function century(year) {
+      let decade;
+      
+      if (year % 100 === 0) {
+            decade = year / 100;
+      } else {
+            decade = Math.floor(year/100 + 1);
+      }
+      
+      return String(decade) + honorifics(decade);
+};
+
+function honorifics(num) {
+
+      if (exclude(num % 100)){
+            return 'th';
+      }
+
+      let lastDigit = num % 10;
+      switch (lastDigit){
+            case 1:
+                  return 'st';
+            case 2:
+                  return 'nd';
+            case 3:
+                  return 'rd';
+            default:
+                  return 'th';
+      }
+};
+
+function exclude(tenEnds) {
+      return tenEnds === 11 || tenEnds === 12 || tenEnds === 13;
+}
+
+//Test:
+console.log(century(2000));        // "20th"
+console.log(century(2001));        // "21st"
+console.log(century(1965));        // "20th"
+console.log(century(256));         // "3rd"
+console.log(century(5));           // "1st"
+console.log(century(10103));       // "102nd"
+console.log(century(1052));        // "11th"
+console.log(century(1127));        // "12th"
+console.log(century(11201));       // "113th"
