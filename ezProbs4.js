@@ -306,3 +306,48 @@ wordSizes('Four score and seven.');                       // { "3": 1, "4": 1, "
 console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
 wordSizes("What's up doc?");                              // { "2": 1, "4": 1, "6": 1 }
 wordSizes('');                                            // {}
+///////
+// Letter Swap
+
+// Explicit:
+//       Function that swaps the first and last letter of every word;
+//       We may assume the strings are normal;
+
+// Implicit:
+//       is not case sensitive;
+
+// Algorithm:
+//       start: String;
+
+//       Use .split(' ');
+//       loop over each word;
+//             focus on the array;
+
+//             loop over it again.
+//             focus on the elements;
+
+//       return: string;
+
+function swap(string) {
+  let newStr = [];
+  let arr = string.split(' ');
+  let idx = 0;
+
+  if (string.length === 1) {
+    return string;
+  }
+
+  while (idx < arr.length) {
+
+    newStr.push(arr[idx].slice(-1) + arr[idx].slice(1, -1) + arr[idx][0]);
+    idx++;
+  }
+
+  return newStr.join(' ');
+}
+
+
+// test:
+console.log(swap('Oh what a wonderful day it is'));  // "hO thaw a londerfuw yad ti si"
+console.log(swap('Abcde'));                          // "ebcdA"
+console.log(swap('a'));                              // "a"
