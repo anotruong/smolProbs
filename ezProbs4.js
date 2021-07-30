@@ -160,3 +160,149 @@ console.log(isRealPalindrome("Madam, I'm Adam"));     // true (only alphanumeric
 console.log(isRealPalindrome('356653'));              // true
 console.log(isRealPalindrome('356a653'));             // true
 console.log(isRealPalindrome('123ab321'));            // false
+
+//
+// Palindromic Numbers
+
+// Explicit:
+//       return true if integer is palidromic or false if its not.
+
+// Implicit:
+//       Convert to strings;
+//       conver back to numbers?
+
+// Algorithm:
+//       start: integer;
+
+//       convert integer to str;
+//       split().reverse().join() => number
+
+//       return: Boolean;
+
+function isPalindromicNumber(num) {
+  let strNum = String(num).split('').reverse().join('');
+  console.log(num === Number(strNum));
+}
+
+// Test:
+isPalindromicNumber(34543);        // true
+isPalindromicNumber(123210);       // false
+isPalindromicNumber(22);           // true
+isPalindromicNumber(5);            // true
+//////
+// Running Totals
+
+// Explicit:
+//       Function that takes an array of numbers;
+//       Returns an array with the same number of elements
+//             but with each element's value being the running total from
+//                   original array;
+
+// Implicit:
+//       The first value of the number is added to the next value which is
+//             then added to the next value;
+//       Does this also involve negative numbers?
+
+// Algorithm:
+//       start: array;
+
+//       let newArr = [];
+//       reduce intial array and push into new array
+// while loop;
+//       first arr + second arr
+
+//       return: newArray;
+
+// function runningTotal(arr){
+//       let result = [];
+//       let i = 0;
+//       let runner;
+
+//       while (i < arr.length) {
+//             if (result.length == 0){
+//                   result.push(arr[i]);
+//             }else {
+//                   runner = Number(arr[i]) + Number(result.slice(-1));
+//                   result.push(runner)
+//             }
+
+//             i++
+//       }
+//       return result;
+// }
+
+
+function runningTotal(arr) {
+  let result = [];
+
+  let runner = arr.reduce((acc, curr) => {
+    acc += curr;
+    result.push(acc);
+    return acc;
+  }, 0);
+  return result;
+}
+
+// test:
+console.log(runningTotal([2, 5, 13]));             // [2, 7, 20]
+console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
+console.log(runningTotal([3]));                    // [3]
+console.log(runningTotal([]));                     // []
+////
+// Letter Counter Prt 1 & 2
+
+// Explicit:
+//       Function that takes a String;
+//       consisting of zero ro more space separted words;
+//       returns object that shows the number of words of different sizes;
+
+
+// Implicit:
+//       characters that are non-alphanumeric counts in word length;
+//       They are organized from smallest integer string to largest;
+
+// Algorithm:
+//       create an object;
+//             all values set to zero;
+// Use RegExp?
+//       split up string into separate words;
+//       anaylze each words;
+//       how to sort answers?
+// if statement?
+//       two if statements?
+//       two fuctions?
+//       so three functions in total?
+// one function for sorting through the words and the number of characters;
+
+function wordSizes(string) {
+  let count = {};
+  let array = string.split('');
+
+  let newArr = array.filter(char => {
+    if (!char.match(/[-.',!]/g)) {
+      return char;
+    }
+  }).join('').split(' ');
+
+  for (let i = 0; i < newArr.length; i++) {
+    let wordLength = newArr[i].length;
+    if (wordLength === 0) {
+      continue;
+    }
+
+    if (!count[wordLength]) {
+      count[wordLength] = 0;
+    }
+
+    count[wordLength] += 1;
+  }
+
+  return count;
+}
+
+
+// Test:
+wordSizes('Four score and seven.');                       // { "3": 1, "4": 1, "5": 1, "6": 1 }
+console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
+wordSizes("What's up doc?");                              // { "2": 1, "4": 1, "6": 1 }
+wordSizes('');                                            // {}
