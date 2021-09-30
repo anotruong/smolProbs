@@ -1,5 +1,5 @@
 //prob 1//
-/*function dms(number) {
+function dms(number) {
   let strNum = String(number).split('.');
   let degree = parseFloat(strNum[0]);
   let minutes = Math.floor(60 * (number - degree));
@@ -18,10 +18,10 @@ console.log(dms(254.6));        // 254°35'59"
 console.log(dms(93.034773));    // 93°02'05"
 console.log(dms(0));            // 0°00'00"
 console.log(dms(360));          // 360°00'00" or 0°00'00"
-*/
+
 
 //prob 2//
-/*
+
 function union(array1, array2) {
   let newArray = array1.concat(array2);
   let strIdx = 0;
@@ -48,10 +48,10 @@ function union(array1, array2) {
 
 //test:
 union([1, 3, 5], [3, 6, 9]);    // [1, 3, 5, 6, 9]
-*/
+
 
 //prob 3//
-/*
+
 function halvsies (arr) {
   let newArray = [];
 
@@ -73,14 +73,14 @@ console.log(halvsies([1, 2, 3, 4]));       // [[1, 2], [3, 4]]
 console.log(halvsies([1, 5, 2, 4, 3]));    // [[1, 5, 2], [4, 3]]
 console.log(halvsies([5]));                // [[5], []]
 console.log(halvsies([]));                 // [[], []]
-*/
+
 
 
 //prob4//
 
 function findDup(array) {
   let duplicate = {};
-/*  let idx = 0;
+/*let idx = 0;
 
   while (idx < array.length) {
 
@@ -96,11 +96,11 @@ function findDup(array) {
     idx++;
   }
 */
-  let idx = 0
+  let idx = 0;
 
   while (idx < array.length) {
     if (duplicate[array[idx]]) {
-      return array[idx]
+      return array[idx];
     } else {
       duplicate[array[idx]] = true;
     }
@@ -159,5 +159,82 @@ console.log(multiplicativeAverage([3, 5]));                   // "7.500"
 console.log(multiplicativeAverage([2, 5, 7, 11, 13, 17]));    // "28361.667"
 
 
+//prob7//
 
+function multiplyList(arr1, arr2) {
+//reduce//
+  return arr1.reduce((arr, value, idx) => {
+    arr.push(value * arr2[idx]);
+    return arr;
+  }, []);
 
+  //for loop//
+  let result = [];
+
+  for (let idx = 0; idx < arr1.length; idx++) {
+    result.push(arr1[idx] * arr2[idx]);
+  }
+
+  return result;
+
+  //forEach/map//
+  let total = [];
+
+  arr1.map((element, idx) => {
+    total.push(element * arr2[idx]);
+  });
+
+  return total;
+}
+
+console.log(multiplyList([3, 5, 7], [9, 10, 11]));    // [27, 50, 77]
+
+//prob 8//
+
+digitList = number => { return String(number).split('').map((element) => {
+    return parseInt(element, 10);
+  })
+};
+
+//test:
+  console.log(digitList(12345));       // [1, 2, 3, 4, 5]
+  console.log(digitList(7));           // [7]
+  console.log(digitList(375290));      // [3, 7, 5, 2, 9, 0]
+  console.log(digitList(444));         // [4, 4, 4]
+
+//prob 9//
+
+function countOccurrences(car) {
+  let carCounter = {};
+
+  for (let idx = 0; idx < car.length; idx++) {
+    carCounter[car[idx]] = carCounter[car[idx]] || 0;
+    carCounter[car[idx]] += 1 || 1;
+  };
+
+  /*car.forEach(element => {
+    if (carCounter[element] !== element) {
+      carCounter[element] += 1;
+    }
+  });*/
+
+  logOccurences(carCounter);
+}
+
+function logOccurences (numberOfTimes) {
+   for (const prop in numberOfTimes) {
+    console.log(`${prop} => ${numberOfTimes[prop]}`);
+  }
+}
+
+let vehicles = ['car', 'car', 'truck', 'car', 'SUV', 'truck',
+                'motorcycle', 'motorcycle', 'car', 'truck'];
+
+countOccurrences(vehicles);
+
+/* console output -- your output sequence may be different
+car => 4
+truck => 3
+SUV => 1
+motorcycle => 2
+*/
