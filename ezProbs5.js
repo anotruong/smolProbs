@@ -238,3 +238,61 @@ truck => 3
 SUV => 1
 motorcycle => 2
 */
+
+//prob 10//
+
+const average = number => {
+  return Math.floor(number.reduce((acc, curr) => acc + curr, 0) / number.length);
+}
+
+console.log(average([1, 5, 87, 45, 8, 8]));       // 25
+console.log(average([9, 47, 23, 95, 16, 52]));    // 40
+
+//prob 11 //
+
+function timeOfDay (num) {
+  let hour = 0;
+  let minute = 0;
+
+  while (num < 0) {
+    num += 1440;
+  }
+
+  while (num > 1440) {
+    num -= 1440;
+  }
+
+    hour = Math.floor(num / 60);
+    minute = num % 60;
+
+  return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`
+}
+
+
+//prob 12
+
+function afterMidnight (integer) {
+  let hour = parseInt(String(integer).split(':')[0]);
+  let minute = parseInt(String(integer).split(':')[1]);
+  let total = 0;
+
+  total = hour * 60 + minute;
+
+  if (total === 1440) total =  0;
+
+  return (total === 1440) ? 0 : total;
+}
+
+function beforeMidnight (number) {
+  let total = 1440 - afterMidnight(number);
+
+  return  (total === 1440) ? 0 : total;
+
+}
+
+console.log(afterMidnight("00:00") === 0);
+console.log(beforeMidnight("00:00") === 0);
+console.log(afterMidnight("12:34") === 754);
+console.log(beforeMidnight("12:34") === 686);
+console.log(afterMidnight("24:00") === 0);
+console.log(beforeMidnight("24:00") === 0);
